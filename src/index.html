@@ -1,18 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boring Navbar</title>
+
+  <!-- Internal CSS (boring style) -->
+  <style>
+    /* पूरी तरह सादा, बिना animation/अजीब रंग के */
+    :root{
+      --bg: #efefef;     /* हल्का ग्रे background */
+      --nav-bg: #dddddd; /* navbar का साधारण ग्रे */
+      --text: #333333;   /* लिंक टेक्स्ट */
+      --sep: #cccccc;    /* अलग करने वाली लाइन */
+    }
+
+    /* reset-ish */
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;}
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.4;
+      padding:20px;
+    }
+
+    /* navbar container */
+    .navbar{
+      background:var(--nav-bg);
+      border:1px solid var(--sep);
+      padding:8px 12px;
+      max-width:900px; /* optional */
+      margin:0 auto 20px auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand{
+      font-size:14px;
+      color:var(--text);
+      text-decoration:none;
+      letter-spacing:0.2px;
+      opacity:0.9;
+    }
+
+    /* simple list for links */
+    .nav-links{
+      list-style:none;
+      display:flex;
+      gap:10px;
+    }
+
+    .nav-links a{
+      display:block;
+      padding:6px 8px;
+      text-decoration:none;
+      color:var(--text);
+      font-size:13px;
+      border-radius:2px;
+    }
+
+    /* very boring hover: just change background a tiny bit */
+    .nav-links a:hover{
+      background:#e7e7e7;
+    }
+
+    /* optional: small search box (also boring) */
+    .nav-actions{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+
+    .search{
+      border:1px solid var(--sep);
+      padding:5px;
+      font-size:13px;
+      background:white;
+      width:150px;
+    }
+
+    /* responsive: stack items on narrow screens */
+    @media (max-width:520px){
+      .navbar{flex-direction:column;gap:8px;align-items:stretch;padding:10px;}
+      .nav-links{justify-content:flex-start;flex-wrap:wrap;}
+      .search{width:100%;}
+    }
+  </style>
 </head>
 <body>
-    <h1>Ravi</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Byee</h1>
-    <h1>Byee</h1>
-    <h1>Byee</h1>
-    <h1>Byee</h1>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#" class="brand">My Boring Site</a>
+
+    <ul class="nav-links" role="menubar" aria-label="Primary">
+      <li role="none"><a role="menuitem" href="#">Home</a></li>
+      <li role="none"><a role="menuitem" href="#">About</a></li>
+      <li role="none"><a role="menuitem" href="#">Services</a></li>
+      <li role="none"><a role="menuitem" href="#">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <input class="search" type="text" placeholder="Search... (boring)" aria-label="Search">
+    </div>
+  </nav>
+
+  <main>
+    <h1>Yeh bahut boring navbar hai</h1>
+    <p>Simple, safe, aur kuch khaas nahi.</p>
+  </main>
+
 </body>
 </html>
